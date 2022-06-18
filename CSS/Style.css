@@ -47,14 +47,39 @@ ul {
 }
 .section {
   background-color: var(--bg-black-900);
-  min-height: 100vh;
   display: block;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+  left: 270px;
   padding: 0 30px;
   opacity: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  transition: var(--transition);
 }
-.main-content {
+.section.back-section {
+  z-index: 1;
+}
+.section.active {
+  z-index: 2;
+  opacity: 1;
+  animation: slideSection 1s ease;
+}
+@keyframes slideSection {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* .main-content {
   padding-left: 270px;
-}
+} */
 .hidden {
   display: none !important;
 }
@@ -119,18 +144,19 @@ ul {
 }
 /* ==========Aside style Start============= */
 .aside {
-  width: 270px;
   background-color: var(--bg-black-100);
+  border-right: 1px solid var(--bg-black-50);
   position: fixed;
+  width: 270px;
   left: 0;
   top: 0;
   padding: 30px;
   height: 100%;
   z-index: 10;
-  border-right: 1px solid var(--bg-black-50);
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: var(--transition);
 }
 
 .aside .logo {
@@ -150,7 +176,8 @@ ul {
 
 .aside .logo a span {
   font-family: "Clicker Script", cursive;
-  font-size: 40px;
+  font-size: 42px;
+  font-weight: 900;
 }
 
 .aside .logo a::before {
@@ -174,18 +201,19 @@ ul {
   right: 0;
 }
 .aside .nav-toggler {
-  height: 40px;
-  width: 45px;
   border: 1px solid var(--bg-black-50);
+  background-color: var(--bg-black-100);
   cursor: pointer;
   position: fixed;
-  left: 300px;
-  top: 20px;
-  border-radius: 5px;
-  background-color: var(--bg-black-100);
   display: none;
   justify-content: center;
   align-items: center;
+  height: 40px;
+  width: 45px;
+  left: 300px;
+  top: 20px;
+  border-radius: 5px;
+  transition: var(--transition);
 }
 .aside .nav-toggler span {
   height: 2px;
@@ -193,6 +221,9 @@ ul {
   background-color: var(--skin-color);
   display: inline-block;
   position: relative;
+}
+.aside .nav-toggler.open span {
+  background-color: transparent;
 }
 .aside .nav-toggler span::before {
   content: "";
@@ -203,6 +234,10 @@ ul {
   top: -6px;
   left: 0;
 }
+.aside .nav-toggler.open span::before {
+  transform: rotate(45deg);
+  top: 0;
+}
 .aside .nav-toggler span::after {
   content: "";
   position: absolute;
@@ -211,6 +246,10 @@ ul {
   background-color: var(--skin-color);
   top: 6px;
   left: 0;
+}
+.aside .nav-toggler.open span::after {
+  transform: rotate(-45deg);
+  top: 0;
 }
 .aside .nav {
   margin-top: 50px;
@@ -353,7 +392,7 @@ h3.my-profession {
   margin-top: 30px;
 }
 .about .about-content .personal-info .buttons .btn {
-  margin-right: 15px;
+  /* margin-right: 15px; */
   margin-top: 10px;
 }
 .about .about-content .skills {
@@ -638,8 +677,21 @@ h3.my-profession {
   .aside {
     left: -270px;
   }
-  .main-content {
-    padding-left: 0;
+  .section {
+    left: 0;
+  }
+  .aside.open {
+    left: 0;
+  }
+  .aside .nav-toggler.open {
+    left: 300px;
+  }
+  .aside .nav-toggler {
+    display: flex;
+    left: 30px;
+  }
+  .section.open {
+    left: 270px;
   }
 }
 

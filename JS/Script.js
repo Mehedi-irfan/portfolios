@@ -6,6 +6,14 @@ var typed = new Typed('.typing', {
     loop: true
 })
 
+var sctript = new Typed('.script', {
+    strings: ["", "Web Designer", "Web Developer", "Front End Developer", "MERN Stack Developer"],
+    typeSpeed: 100,
+    BackSpeed: 80,
+    loop: true
+})
+
+
 // ===================================Aside =============================
 let nav = document.querySelector('.nav');
 let navList = nav.querySelectorAll('li');

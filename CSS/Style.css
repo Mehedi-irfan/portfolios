@@ -701,12 +701,26 @@ h3.my-profession {
     flex: 0 0 50%;
     max-width: 50%;
   }
-  .home .home-info {
-    flex: 0 0 100%;
-    max-width: 100%;
+
+  .home-img::after {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-bottom: 10px solid var(--skin-color);
+    border-right: 10px solid var(--skin-color);
+    right: 10px;
+    bottom: 20px;
   }
-  .home .home-img {
-    display: none;
+  .home-img::before {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-top: 10px solid var(--skin-color);
+    border-left: 10px solid var(--skin-color);
+    left: 10px;
+    top: -20px;
   }
   .about .about-content .personal-info .info-item p span {
     display: block;
@@ -724,5 +738,63 @@ h3.my-profession {
   .about .about-content .personal-info {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+  .home .home-img {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 80px;
+  }
+  .home .home-img img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .home .home-info {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .home-img::after {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-bottom: 10px solid var(--skin-color);
+    border-right: 10px solid var(--skin-color);
+    right: 150px;
+    bottom: -40px;
+  }
+  .home-img::before {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-top: 10px solid var(--skin-color);
+    border-left: 10px solid var(--skin-color);
+    left: 150px;
+    top: -40px;
+  }
+}
+
+@media only screen and (max-width: 668px) {
+  .home-img::after {
+    content: "";
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-bottom: 10px solid var(--skin-color);
+    border-right: 10px solid var(--skin-color);
+    right: 80px;
+    bottom: -20px;
+  }
+  .home-img::before {
+    content: "";
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-top: 10px solid var(--skin-color);
+    border-left: 10px solid var(--skin-color);
+    left: 80px;
+    top: -20px;
   }
 }

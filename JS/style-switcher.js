@@ -24,7 +24,6 @@ function setActiveStyle(color) {
     })
 }
 
-
 // =====================Theme light dark and moon ================
 const DayLigth = document.querySelector('.day-night');
 DayLigth.addEventListener('click', () => {
